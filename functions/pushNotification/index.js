@@ -37,7 +37,7 @@ const pushNotification = (req, res) => {
           createdAt: moment().valueOf(),
           createDate: new Date()
         }
-        msj = `${username} has purchased an product`
+        msj = `${username} has purchased a product`
       }
       if ( typeNotification === 'noti_follow' ) {
         dataNoti = {
