@@ -27,7 +27,17 @@ const pushNotification = (req, res) => {
           createdAt: moment().valueOf(),
           createDate: new Date()
         }
-        msj = `The user ${username} he liked your post`
+        msj = `${username} liked your photo`
+      }
+      if ( typeNotification === 'noti_sales' ) {
+        dataNoti = {
+          username,
+          idUserEntry,
+          type: typeNotification,
+          createdAt: moment().valueOf(),
+          createDate: new Date()
+        }
+        msj = `${username} has purchased a product`
       }
       if ( typeNotification === 'noti_follow' ) {
         dataNoti = {
@@ -48,7 +58,7 @@ const pushNotification = (req, res) => {
           createdAt: moment().valueOf(),
           createDate: new Date()
         }
-        msj = `The user ${username} commented on your post`
+        msj = `The user ${username} commented on your photo`
       }
   
       let payload = {
