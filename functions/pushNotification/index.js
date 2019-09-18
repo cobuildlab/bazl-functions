@@ -21,6 +21,7 @@ const pushNotification = (req, res) => {
       if ( typeNotification === 'noti_like' ) {
         dataNoti = {
           username,
+          viewed: false,
           idPost,
           idUserEntry,
           type: typeNotification,
@@ -32,6 +33,7 @@ const pushNotification = (req, res) => {
       if ( typeNotification === 'noti_sales' ) {
         dataNoti = {
           username,
+          viewed: false,
           idUserEntry,
           type: typeNotification,
           createdAt: moment().valueOf(),
@@ -42,6 +44,7 @@ const pushNotification = (req, res) => {
       if ( typeNotification === 'noti_follow' ) {
         dataNoti = {
           username,
+          viewed: false,
           idUserEntry,
           type: typeNotification,
           createdAt: moment().valueOf(),
@@ -52,6 +55,7 @@ const pushNotification = (req, res) => {
       if ( typeNotification === 'noti_comment' ) {
         dataNoti = {
           username,
+          viewed: false,
           comment,
           idUserEntry,
           type: typeNotification,
@@ -68,11 +72,15 @@ const pushNotification = (req, res) => {
       }
       }
   
-      db
+      const refNotification = db
       .collection('notifications')
       .doc(emailUser)
       .collection("message")
       .doc()
+      
+      dataNoti.id = refNotification.id,
+
+      refNotification
       .set(dataNoti)
       .then( (res)=>{
         console.log('NOTIFICACION GUARDADA')
