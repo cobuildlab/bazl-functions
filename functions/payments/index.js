@@ -13,8 +13,8 @@ const proccessPayment = (req, res) => {
     const token = req.body.token
     const emailCustomer = req.body.emailCustomer
     const total = (req.body.totalAmount)
-    const fee = ((total *2.9)/100) +0.30
-    const totalAmount = parseFloat(total + fee).toFixed(2)
+    // const fee = ((total *2.9)/100) +0.30
+    const totalAmount = parseFloat(total).toFixed(2)
     const accessToken = req.header('Authorization')
     const tokenAccess = accessToken.split(' ')
     admin.auth().verifyIdToken(tokenAccess[1])
