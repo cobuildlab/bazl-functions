@@ -1,6 +1,6 @@
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
-const keyStripe = functions.config().stripekey.keysandbox;
+const keyStripe = functions.config().stripekey.keypro; //keysandbox
 const stripe = require('stripe')(keyStripe)
 const cors = require('cors')({
     origin: true,
