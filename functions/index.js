@@ -7,6 +7,8 @@ const paymentController = require('./payments')
 
 exports.onPostCreated = functions.firestore.document('posts/{postId}').onCreate(textSearch.onPostCreated);
 
+exports.onProductCreated = functions.firestore.document('products/{productId}').onCreate(textSearch.onProductCreated);
+
 exports.notificationBazl = functions.https.onRequest(pushController.pushNotification)
 
 exports.proccessPayment = functions.https.onRequest(paymentController.proccessPayment)
