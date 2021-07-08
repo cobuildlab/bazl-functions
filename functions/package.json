@@ -18,7 +18,7 @@
     "firebase-admin": "^8.0.0",
     "firebase-functions": "^3.1.0",
     "moment": "^2.24.0",
-    "stripe": "^7.9.1"
+    "stripe": "^7.63.1"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
